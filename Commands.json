@@ -1,0 +1,18 @@
+{
+ "devices": [
+    {
+        "device" : "TRM240",
+        "connection" : "serial",
+        "commands":[
+        { 
+            "command":"ATI",
+            "expects":"FAIL"
+        },
+        {
+            "command":"AT+COPS",
+            "expects":"OK"
+        }
+        ]
+    }
+]
+}
