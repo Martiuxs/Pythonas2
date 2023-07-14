@@ -1,18 +1,102 @@
 {
- "devices": [
-    {
-        "device" : "TRM240",
-        "connection" : "serial",
-        "commands":[
-        { 
-            "command":"ATI",
-            "expects":"FAIL"
+    "devices": [
+        {
+            "device" : "TRM240",
+            "connection" : "serial",
+            "commands":[
+                { 
+                    "command":"ATI",
+                    "expects":"OK"
+                },
+                {
+                    "command":"AT+COPS",
+                    "expects":"OK"
+                }
+                ,
+                {
+                    "command":"AT+GMI",
+                    "expects":"OK"
+                }
+                ,
+                {
+                    "command":"AT+GMR",
+                    "expects":"OK"
+                }
+                ,
+                {
+                    "command":"AT+CGMI",
+                    "expects":"OK"
+                }
+                ,
+                {
+                    "command":"AT+CGMM",
+                    "expects":"OK"
+                }
+                ,
+                {
+                    "command":"AT+CGMR",
+                    "expects":"OK"
+                }
+                ,
+                {
+                    "command":"AT+GSN",
+                    "expects":"OK"
+                }
+                ,
+                {
+                    "command":"AT+CGSN",
+                    "expects":"OK"
+                }
+            ]
         },
         {
-            "command":"AT+COPS",
-            "expects":"OK"
+            "device" : "RUTX11",
+            "connection" : "serial",
+            "commands":[
+                { 
+                    "command":"ATI",
+                    "expects":"OK"
+                },
+                {
+                    "command":"AT+COPS",
+                    "expects":"OK"
+                }
+                ,
+                {
+                    "command":"AT+GMI",
+                    "expects":"OK"
+                }
+                ,
+                {
+                    "command":"AT+GMR",
+                    "expects":"OK"
+                }
+                ,
+                {
+                    "command":"AT+CGMI",
+                    "expects":"OK"
+                }
+                ,
+                {
+                    "command":"AT+CGMM",
+                    "expects":"OK"
+                }
+                ,
+                {
+                    "command":"AT+CGMR",
+                    "expects":"OK"
+                }
+                ,
+                {
+                    "command":"AT+GSN",
+                    "expects":"OK"
+                }
+                ,
+                {
+                    "command":"AT+CGSN",
+                    "expects":"OK"
+                }
+            ]
         }
-        ]
-    }
-]
+    ]
 }
