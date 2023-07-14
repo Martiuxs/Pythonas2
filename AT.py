@@ -3,6 +3,8 @@ import csv
 from datetime import datetime
 from colorama import Fore, Style
 import json
+import sys
+import time
 
 def load_config(file_path):
     try:
@@ -20,16 +22,22 @@ def connect_to_device():
         print(f"Error: Failed to connect to the device. {e}")
         return None
 
-
-def send_at_commands(ser, commands):
+def send_at_commands(ser, commands, total_commands):
     responses = []
-    for command_data in commands:
+    for i, command_data in enumerate(commands, 1):
         command = command_data['command']
         expected_result = command_data['expects']
 
+        sys.stdout.write(f"\rTesting command {command_data['command']}...  ")
+        sys.stdout.flush()
+
         ser.write(f'{command}\r\n'.encode('ascii'))
+        time.sleep(0.5)
         response = ser.read_until(b'OK\r\n').decode('ascii').strip()
         responses.append((command, expected_result, response))
+
+    sys.stdout.write("\n")
+    sys.stdout.flush()
     return responses
 
 def write_results_to_csv(file_name, results):
@@ -42,9 +50,6 @@ def write_results_to_csv(file_name, results):
             else:
                 status = 'Failed' 
             writer.writerow([command.ljust(5), expected_result.ljust(5), response, status])
-
-            
-
 
 def run_at_command_tests(config_file, product_name):
     data = load_config(config_file)
@@ -62,10 +67,14 @@ def run_at_command_tests(config_file, product_name):
 
     ser = connect_to_device()
 
+    if ser is None:
+        return
+
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     file_name = f"{product_name}_{timestamp}.csv"
 
-    responses = send_at_commands(ser, device['commands'])
+    total_commands = len(device['commands'])
+    responses = send_at_commands(ser, device['commands'], total_commands)
     write_results_to_csv(file_name, responses)
 
     ser.close()
@@ -75,14 +84,8 @@ def run_at_command_tests(config_file, product_name):
     failed_commands = len(responses) - passed_commands
     total_commands = len(responses)
 
-    # Display the information during testing
-    print(f"Product: {product_name}")
-    for idx, (command, expected_result, response) in enumerate(responses, 1):
-        status = Fore.GREEN + 'Passed' + Style.RESET_ALL if response.find(expected_result) != -1 else Fore.RED + 'Failed' + Style.RESET_ALL
-        print(f"Command {idx}/{total_commands}: {command} | Expected: {expected_result} | Received: {response} | Status: {status}")
-
     # Display final summary
-    print(f"Test Summary - {Fore.GREEN}Passed: {passed_commands} |{Fore.RED} Failed: {failed_commands} |{Style.RESET_ALL} Total: {total_commands}")
+    print(f"\nTest Summary - {Fore.GREEN}Passed: {passed_commands} |{Fore.RED} Failed: {failed_commands} |{Style.RESET_ALL} Total: {total_commands}")
 
 config_file = 'Commands.json'
 product_name = 'TRM240'
