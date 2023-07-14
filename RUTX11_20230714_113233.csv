@@ -1,0 +1,37 @@
+Command ,Expected Result ,Received Result ,Status 
+ATI  ,OK   ,"ATI
+Quectel
+EC21
+Revision: EC21ECGAR06A04M1G
+
+OK",Passed
+AT+COPS,OK   ,"AT+COPS
+OK",Passed
+AT+GMI,OK   ,"AT+GMI
+Quectel
+
+OK",Passed
+AT+GMR,OK   ,"AT+GMR
+EC21ECGAR06A04M1G
+
+OK",Passed
+AT+CGMI,OK   ,"AT+CGMI
+Quectel
+
+OK",Passed
+AT+CGMM,OK   ,"AT+CGMM
+EC21
+
+OK",Passed
+AT+CGMR,OK   ,"AT+CGMR
+EC21ECGAR06A04M1G
+
+OK",Passed
+AT+GSN,OK   ,"AT+GSN
+864394040062806
+
+OK",Passed
+AT+CGSN,OK   ,"AT+CGSN
+864394040062806
+
+OK",Passed
