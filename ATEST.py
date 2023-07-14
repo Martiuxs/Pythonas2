@@ -89,6 +89,8 @@ with open(file_name, mode='w', newline='') as file:
 
         # Read the response
         response = ser.read_until(b'OK\r\n').decode('ASCII').strip()
+        
+    if(response == device['commands']['expectedResult']):
 
         if response.find('OK') != -1:
             status = 'Passed'
