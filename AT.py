@@ -85,6 +85,6 @@ def run_at_command_tests(config_file, product_name):
     print(f"Test Summary - {Fore.GREEN}Passed: {passed_commands} |{Fore.RED} Failed: {failed_commands} |{Style.RESET_ALL} Total: {total_commands}")
 
 config_file = 'Commands.json'
-product_name = 'RUTX11'
+product_name = 'TRM240'
 
 run_at_command_tests(config_file, product_name)
