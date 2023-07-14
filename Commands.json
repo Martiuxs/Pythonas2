@@ -6,7 +6,7 @@
             "commands":[
                 { 
                     "command":"ATI",
-                    "expects":"OK"
+                    "expects":"error"
                 },
                 {
                     "command":"AT+COPS",
@@ -25,7 +25,136 @@
                 ,
                 {
                     "command":"AT+CGMI",
+                    "expects":"error"
+                }
+                ,
+                {
+                    "command":"AT+CGMM",
                     "expects":"OK"
+                }
+                ,
+                {
+                    "command":"AT+CGMR",
+                    "expects":"OK"
+                }
+                ,
+                {
+                    "command":"AT+GSN",
+                    "expects":"OK"
+                }
+                ,
+                {
+                    "command":"AT+CGSN",
+                    "expects":"OK"
+                },
+                { 
+                    "command":"ATI",
+                    "expects":"error"
+                },
+                {
+                    "command":"AT+COPS",
+                    "expects":"OK"
+                }
+                ,
+                {
+                    "command":"AT+GMI",
+                    "expects":"OK"
+                }
+                ,
+                {
+                    "command":"AT+GMR",
+                    "expects":"OK"
+                }
+                ,
+                {
+                    "command":"AT+CGMI",
+                    "expects":"error"
+                }
+                ,
+                {
+                    "command":"AT+CGMM",
+                    "expects":"OK"
+                }
+                ,
+                {
+                    "command":"AT+CGMR",
+                    "expects":"OK"
+                }
+                ,
+                {
+                    "command":"AT+GSN",
+                    "expects":"OK"
+                }
+                ,
+                {
+                    "command":"AT+CGSN",
+                    "expects":"OK"
+                },
+                { 
+                    "command":"ATI",
+                    "expects":"error"
+                },
+                {
+                    "command":"AT+COPS",
+                    "expects":"OK"
+                }
+                ,
+                {
+                    "command":"AT+GMI",
+                    "expects":"OK"
+                }
+                ,
+                {
+                    "command":"AT+GMR",
+                    "expects":"OK"
+                }
+                ,
+                {
+                    "command":"AT+CGMI",
+                    "expects":"error"
+                }
+                ,
+                {
+                    "command":"AT+CGMM",
+                    "expects":"OK"
+                }
+                ,
+                {
+                    "command":"AT+CGMR",
+                    "expects":"OK"
+                }
+                ,
+                {
+                    "command":"AT+GSN",
+                    "expects":"OK"
+                }
+                ,
+                {
+                    "command":"AT+CGSN",
+                    "expects":"OK"
+                },
+                { 
+                    "command":"ATI",
+                    "expects":"error"
+                },
+                {
+                    "command":"AT+COPS",
+                    "expects":"OK"
+                }
+                ,
+                {
+                    "command":"AT+GMI",
+                    "expects":"OK"
+                }
+                ,
+                {
+                    "command":"AT+GMR",
+                    "expects":"OK"
+                }
+                ,
+                {
+                    "command":"AT+CGMI",
+                    "expects":"error"
                 }
                 ,
                 {
@@ -47,6 +176,57 @@
                     "command":"AT+CGSN",
                     "expects":"OK"
                 }
+                ,
+                {
+                    "command":"AT+CGSN",
+                    "expects":"OK"
+                }
+                ,
+                {
+                    "command":"AT+CGSN",
+                    "expects":"OK"
+                }
+                ,
+                {
+                    "command":"AT+CGSN",
+                    "expects":"OK"
+                }
+                ,
+                {
+                    "command":"AT+CGSN",
+                    "expects":"OK"
+                }
+                ,
+                {
+                    "command":"AT+CGSN",
+                    "expects":"OK"
+                }
+                ,
+                {
+                    "command":"AT+CGSN",
+                    "expects":"OK"
+                }
+                ,
+                {
+                    "command":"AT+CGSN",
+                    "expects":"OK"
+                }
+                ,
+                {
+                    "command":"AT+CGSN",
+                    "expects":"OK"
+                }
+                ,
+                {
+                    "command":"AT+CGSN",
+                    "expects":"OK"
+                }
+                ,
+                {
+                    "command":"AT+CGSN",
+                    "expects":"OK"
+                }
+                
             ]
         },
         {
