@@ -7,6 +7,7 @@ import sys
 import time
 import os
 import subprocess
+import argparse
 
 def load_config(file_path):
     try:
@@ -16,17 +17,12 @@ def load_config(file_path):
     except json.JSONDecodeError:
         raise ValueError(f"Error: Invalid JSON format in {file_path}")
 
-def connect_to_device(config_file):
+def connect_to_device(port, baudrate, timeout):
     # Stop ModemManager service
     subprocess.run(['sudo', 'systemctl', 'stop', 'ModemManager'])
 
-    config = load_config(config_file)
     try:
-        device_port = config['port']
-        baud_rate = config['baudrate']
-        timeout = config['timeout']
-
-        ser = serial.Serial(device_port, baud_rate, timeout=timeout)
+        ser = serial.Serial(port, baudrate, timeout=timeout)
         return ser
     except serial.SerialException as e:
         print(f"Error: Failed to connect to the device. {e}")
@@ -93,8 +89,21 @@ def write_results_to_csv(file_name, results, config_file):
             writer.writerow([command.ljust(5), expected_result.ljust(5), response, status])
 
 def main():
-    command_file = 'Commands.json'
-    config_file = 'config.json'
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--port', help='Serial port')
+    parser.add_argument('--baudrate', help='Baud rate', type=int)
+    parser.add_argument('--timeout', help='Serial timeout', type=float)
+    parser.add_argument('--command-file', help='Command file', default='Commands.json')
+    parser.add_argument('--config-file', help='Config file', default='config.json')
+
+    args = parser.parse_args()
+
+    config = load_config(args.config_file)
+    port = args.port or config.get('port', '/dev/ttyUSB2')
+    baudrate = args.baudrate or config.get('baudrate', 115200)
+    timeout = args.timeout or config.get('timeout', 1.0)
+    command_file = args.command_file
+    config_file = args.config_file
 
     data = load_config(command_file)
     config = load_config(config_file)
@@ -116,7 +125,7 @@ def main():
         print(f"Product '{product_name}' not found in the configuration.")
         return
 
-    ser = connect_to_device(config_file)
+    ser = connect_to_device(port, baudrate, timeout)
 
     if ser is None:
         return
