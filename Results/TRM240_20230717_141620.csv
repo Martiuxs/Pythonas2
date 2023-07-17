@@ -1,0 +1,139 @@
+Command ,Expected Result ,Received Result ,Status 
+ATI  ,error,"Quectel
+EC21
+Revision: EC21ECGAR06A04M1G
+
+OK",Failed
+AT+COPS,OK   ,OK,Passed
+AT+GMI,OK   ,"Quectel
+
+OK",Passed
+AT+GMR,OK   ,"EC21ECGAR06A04M1G
+
+OK",Passed
+AT+CGMI,error,"Quectel
+
+OK",Failed
+AT+CGMM,OK   ,"EC21
+
+OK",Passed
+AT+CGMR,OK   ,"EC21ECGAR06A04M1G
+
+OK",Passed
+AT+GSN,OK   ,"864394040062806
+
+OK",Passed
+AT+CGSN,OK   ,"864394040062806
+
+OK",Passed
+ATI  ,error,"Quectel
+EC21
+Revision: EC21ECGAR06A04M1G
+
+OK",Failed
+AT+COPS,OK   ,OK,Passed
+AT+GMI,OK   ,"Quectel
+
+OK",Passed
+AT+GMR,OK   ,"EC21ECGAR06A04M1G
+
+OK",Passed
+AT+CGMI,error,"Quectel
+
+OK",Failed
+AT+CGMM,OK   ,"EC21
+
+OK",Passed
+AT+CGMR,OK   ,"EC21ECGAR06A04M1G
+
+OK",Passed
+AT+GSN,OK   ,"864394040062806
+
+OK",Passed
+AT+CGSN,OK   ,"864394040062806
+
+OK",Passed
+ATI  ,error,"Quectel
+EC21
+Revision: EC21ECGAR06A04M1G
+
+OK",Failed
+AT+COPS,OK   ,OK,Passed
+AT+GMI,OK   ,"Quectel
+
+OK",Passed
+AT+GMR,OK   ,"EC21ECGAR06A04M1G
+
+OK",Passed
+AT+CGMI,error,"Quectel
+
+OK",Failed
+AT+CGMM,OK   ,"EC21
+
+OK",Passed
+AT+CGMR,OK   ,"EC21ECGAR06A04M1G
+
+OK",Passed
+AT+GSN,OK   ,"864394040062806
+
+OK",Passed
+AT+CGSN,OK   ,"864394040062806
+
+OK",Passed
+ATI  ,error,"Quectel
+EC21
+Revision: EC21ECGAR06A04M1G
+
+OK",Failed
+AT+COPS,OK   ,OK,Passed
+AT+GMI,OK   ,"Quectel
+
+OK",Passed
+AT+GMR,OK   ,"EC21ECGAR06A04M1G
+
+OK",Passed
+AT+CGMI,error,"Quectel
+
+OK",Failed
+AT+CGMM,OK   ,"EC21
+
+OK",Passed
+AT+CGMR,OK   ,"EC21ECGAR06A04M1G
+
+OK",Passed
+AT+GSN,OK   ,"864394040062806
+
+OK",Passed
+AT+CGSN,OK   ,"864394040062806
+
+OK",Passed
+AT+CGSN,OK   ,"864394040062806
+
+OK",Passed
+AT+CGSN,OK   ,"864394040062806
+
+OK",Passed
+AT+CGSN,OK   ,"864394040062806
+
+OK",Passed
+AT+CGSN,OK   ,"864394040062806
+
+OK",Passed
+AT+CGSN,OK   ,"864394040062806
+
+OK",Passed
+AT+CGSN,OK   ,"864394040062806
+
+OK",Passed
+AT+CGSN,OK   ,"864394040062806
+
+OK",Passed
+AT+CGSN,OK   ,"864394040062806
+
+OK",Passed
+AT+CGSN,OK   ,"864394040062806
+
+OK",Passed
+AT+CGSN,OK   ,"864394040062806
+
+OK",Passed
