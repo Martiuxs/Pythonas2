@@ -3,32 +3,22 @@ from modules.serial_utils import connect_to_device
 from modules.command_utils import  send_at_commands
 from modules.result_utils import write_results_to_csv
 from modules.config_utils import load_config
-from modules.display_utils import expected_return, move
+from modules.argparser_utils import parse_arguments
 from datetime import datetime
-import csv
 import sys
-import os
+
 
 def main():
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--port', help='Serial port')
-    parser.add_argument('--baudrate', help='Baud rate', type=int)
-    parser.add_argument('--timeout', help='Serial timeout', type=float)
-    parser.add_argument('--command-file', help='Command file', default='Commands.json')
-    parser.add_argument('--config-file', help='Config file', default='config.json')
+    parsed_config = parse_arguments()
 
-    args = parser.parse_args()
-
-    config = load_config(args.config_file)
-    port = args.port or config.get('port', '/dev/ttyUSB2')
-    baudrate = args.baudrate or config.get('baudrate', 115200)
-    timeout = args.timeout or config.get('timeout', 1.0)
-    command_file = args.command_file
-    config_file = args.config_file
+    port = parsed_config.get('port')
+    baudrate = parsed_config.get('baudrate')
+    timeout = parsed_config.get('timeout')
+    command_file = parsed_config.get('command_file')
+    config_file = parsed_config.get('config_file', 'config.json')
 
     data = load_config(command_file)
     config = load_config(config_file)
-
 
     product_name = config.get('product_name')
 
