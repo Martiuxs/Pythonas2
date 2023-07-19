@@ -1,4 +1,3 @@
-import os
 from colorama import Fore, Style
 
 def expected_return(command, expected_result, response):
