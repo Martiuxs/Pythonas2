@@ -1,4 +1,3 @@
-import argparse
 from modules.serial_utils import connect_to_device
 from modules.command_utils import  send_at_commands
 from modules.result_utils import write_results_to_csv
