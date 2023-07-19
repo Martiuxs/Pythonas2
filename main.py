@@ -5,6 +5,7 @@ from modules.config_utils import load_config
 from modules.argparser_utils import parse_arguments
 from datetime import datetime
 import sys
+import time
 
 
 def main():
@@ -45,6 +46,8 @@ def main():
     file_name = f"{product_name}_{timestamp}.csv"
 
     total_commands = len(device['commands'])
+    print(f"Total commands to test: {total_commands}")
+    time.sleep(0.8)
     responses = send_at_commands(ser, device['commands'])
     write_results_to_csv(file_name, responses, config_file)
 

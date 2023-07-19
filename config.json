@@ -1,7 +1,8 @@
      {        
-        "port" : "/dev/ttyUSB2",
+        "port" : "/dev/ttyUSB3",
         "baudrate" : 115200,
         "timeout" : 1,
         "product_name" : "TRM240",
         "folder_path" : "Results"
     }
+    
